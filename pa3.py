@@ -36,6 +36,11 @@ def main(
     Vertices = readers.Vertices(data_dir / f"{name}.sur")
     Indices = readers.Indices(data_dir / f"{name}.sur")
 
+    logging.info("Vertices")
+    logging.info(Vertices.arrVer)
+    logging.info("Indices")
+    logging.info(Indices.arrInd)
+
 
 if __name__ == "__main__":
     main()
