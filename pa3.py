@@ -2,7 +2,6 @@ import click
 import logging
 from rich.logging import RichHandler
 from rich.progress import track
-import time
 from pathlib import Path
 import numpy as np
 

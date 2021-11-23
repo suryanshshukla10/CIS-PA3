@@ -48,20 +48,6 @@ class closestPoint:
     #   formed by three rows of points TRI = [P1;P2;P3] each of size 1x3]
             P ([P0 = [0.5 -0.3 0.5]]): [Point P is a row vector of the form 1x3]
         """
-        # Example:
-        # %% The Problem
-        # P0 = [0.5 -0.3 0.5]
-        #
-        # P1 = [0 -1 0]
-        # P2 = [1  0 0]
-        # P3 = [0  0 0]
-        #
-        # vertices = [P1; P2; P3]
-        # faces = [1 2 3]
-        # The algorithm is based on
-        # "David Eberly, 'Distance Between Point and Triangle in 3D',
-        # Geometric Tools, LLC, (1999)"
-        # http:\\www.geometrictools.com/Documentation/DistancePoint3Triangle3.pdf
         #
         #        ^t
         #  \     |
@@ -97,8 +83,7 @@ class closestPoint:
         det = a * c - b * b
         s = b * e - c * d
         t = b * d - a * e
-        # Terible tree of conditionals to determine in which region of the diagram
-        # shown above the projection of the point into the triangle-plane lies.
+
         if (s + t) <= det:
             if s < 0.0:
                 if t < 0.0:

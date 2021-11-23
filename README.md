@@ -5,6 +5,12 @@ Programming Assignment 3
 Type the following command in terminal to run the program
 
 > python3 pa3.py
+
+To get the output of unknown data files run - 
+>python3 pa3_unknown.py
+
+Remember - for unknown files we have to run individual files for generating the output. Just uncomment the file name. 
+
 # Output
 
 The output file is saved in outputs folder. 
