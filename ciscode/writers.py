@@ -1,6 +1,6 @@
+import numpy as np
 from pathlib import Path
 import logging
-
 log = logging.getLogger(__name__)
 
 
@@ -16,25 +16,40 @@ class Writer:
             output_dir.mkdir()
         with open(output_dir / self.fname, "w") as file:
             file.write(str(self))
-
         log.info(f"Saved output to {output_dir / self.fname}")
 
 
 class PA3(Writer):
-    """Output formatter class for programming assignment 3."""
+    """Output formatter class for programming assignment 1."""
 
-    def __init__(self, name: str, N_samples, d, c, d_norm):
-        super().__init__(f"{name}-pa3-X-Output.txt")
+    def __init__(self, name: str, arr):
+        super().__init__(f"{name}-Output.txt")
         self.name = name
-        self.N_samples = N_samples
-        self.d = d
-        self.c = c
-        self.d_norm = d_norm
+        self.arr = arr
 
     def __str__(self):
         outputs = []
-        outputs.append(f"{self.N_samples}, {self.name}")
-        outputs.append(
-            ", ".join(map(lambda x: f"  {x:.02f}", self.d, self.c, self.d_norm)))
+        name = self.name
+        header = name + "-Output.txt"
+        outputs.append(f"15,{header},0")
+        arr = self.arr
+        # logging.info("arr[0]")
+        # logging.info(arr[0])
 
+        for i in range(15):
+            outputs.append(" ".join(map(lambda x: f"  {x:.03f}", arr[i])))
+
+        # outputs.append(" ".join(map(lambda x: f"  {x:.02f}", self.d)))
+
+        # outputs.append(
+        #     " ".join(map(lambda x: f"  {x:.02f}", self.arr)))
+        # for j in range(15):
+        #     " ".join(map(lambda x: f"  {x:.02f}", self.arr[j]))
+        # outputs += [
+        #     # ", ".join(map(lambda x: f"  {x:.02f}", self.arr[k, i]))
+        #     ", ".join(map(lambda x: f"  {x:.02f}", self.arr[k]))
+        #     for k in range(15)
+        #     # for i in range(7)
+        # ]
         return "\n".join(outputs)
+        # return (outputs)
